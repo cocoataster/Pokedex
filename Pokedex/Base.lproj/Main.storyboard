@@ -40,6 +40,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="45c-mN-Yux">
                                 <rect key="frame" x="20" y="125" width="335" height="522"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jfd-oF-47M">
                                     <size key="itemSize" width="101" height="111"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,7 +55,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="F3m-Un-2Dg">
+                                                <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="F3m-Un-2Dg">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -106,6 +107,9 @@
                             <constraint firstItem="BKW-aJ-ovw" firstAttribute="top" secondItem="vPh-om-itX" secondAttribute="bottom" id="yFF-cf-G0g"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="45c-mN-Yux" id="GKh-BP-ERG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
