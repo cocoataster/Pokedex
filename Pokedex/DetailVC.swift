@@ -21,7 +21,6 @@ class DetailVC: UIViewController {
     @IBOutlet weak var pokedexIDLbl: UILabel!
     @IBOutlet weak var weightLbl: UILabel!
     @IBOutlet weak var baseAttackLbl: UILabel!
-    @IBOutlet weak var currentEvoImg: UIImageView!
     @IBOutlet weak var nextEvoImg: UIImageView!
     @IBOutlet weak var evoLbl: UILabel!
     
@@ -29,7 +28,11 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLbl.text = pokemon.name
+        nameLbl.text = pokemon.name.capitalized
+        
+        let image = UIImage(named: "\(pokemon.pokedexId)")
+        
+        mainImg.image = image
         
         pokemon.downloadPokemonDetail {
             //After network call is completed
@@ -39,10 +42,22 @@ class DetailVC: UIViewController {
     }
     
     func updateUI() {
+        pokedexIDLbl.text = "\(pokemon.pokedexId)"
         baseAttackLbl.text = pokemon.attack
         defenseLbl.text = pokemon.defense
         weightLbl.text = pokemon.weight
         heightLb.text = pokemon.height
+        typeLbl.text = pokemon.type
+        
+        descriptionLbl.text = pokemon.descript
+        
+        if pokemon.nextEvolutionTxt != "" {
+            evoLbl.text = pokemon.nextEvolutionTxt
+            nextEvoImg.image = UIImage(named: "\(pokemon.pokedexId+1)".capitalized)
+        } else {
+            evoLbl.text = "No evolution available (by lvl)"
+            nextEvoImg.image = UIImage()
+        }
     }
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
