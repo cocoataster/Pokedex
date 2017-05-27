@@ -39,7 +39,10 @@ class DetailVC: UIViewController {
     }
     
     func updateUI() {
-        
+        baseAttackLbl.text = pokemon.attack
+        defenseLbl.text = pokemon.defense
+        weightLbl.text = pokemon.weight
+        heightLb.text = pokemon.height
     }
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
