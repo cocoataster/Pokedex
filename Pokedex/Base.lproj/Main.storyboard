@@ -142,6 +142,7 @@
                     <connections>
                         <outlet property="collection" destination="45c-mN-Yux" id="GKh-BP-ERG"/>
                         <outlet property="searchBar" destination="BKW-aJ-ovw" id="vxS-rN-eE2"/>
+                        <outlet property="soundBtn" destination="r2O-6O-tDd" id="K3j-VV-uLB"/>
                         <segue destination="maX-1U-5tq" kind="show" identifier="PokemonDetailVC" id="rEe-k5-lUS"/>
                     </connections>
                 </viewController>

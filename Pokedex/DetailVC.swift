@@ -56,7 +56,7 @@ class DetailVC: UIViewController {
             nextEvoImg.image = UIImage(named: "\(pokemon.pokedexId+1)".capitalized)
         } else {
             evoLbl.text = "No evolution available (by lvl)"
-            nextEvoImg.image = UIImage()
+            nextEvoImg.isHidden = true
         }
     }
 

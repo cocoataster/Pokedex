@@ -13,6 +13,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var soundBtn: UIButton!
     
     var pokemons = [Pokemon]()
     var filteredPokemon = [Pokemon]()
@@ -28,6 +29,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
+        
+        //Don't want no music bro...
+        soundBtn.isHidden = true
         
         parsePokemonCSV()
         
