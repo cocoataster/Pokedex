@@ -10,6 +10,7 @@
 		0442DCD8DEE9575EC689F9AA /* Pods_Pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7841B3E89F7675275A68DB65 /* Pods_Pokedex.framework */; };
 		9F04D9BF1EDD8073004C7732 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04D9BE1EDD8073004C7732 /* NetworkManager.swift */; };
 		9F185C421EDD95C700A3F5D5 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F185C411EDD95C700A3F5D5 /* ParseData.swift */; };
+		9F185C441EDE1D1800A3F5D5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F185C431EDE1D1800A3F5D5 /* Utilities.swift */; };
 		9F53F77E1ED8838D00C2405D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F53F77D1ED8838D00C2405D /* AppDelegate.swift */; };
 		9F53F7801ED8838D00C2405D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F53F77F1ED8838D00C2405D /* ViewController.swift */; };
 		9F53F7831ED8838D00C2405D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F53F7811ED8838D00C2405D /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		7841B3E89F7675275A68DB65 /* Pods_Pokedex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F04D9BE1EDD8073004C7732 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9F185C411EDD95C700A3F5D5 /* ParseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
+		9F185C431EDE1D1800A3F5D5 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9F53F77A1ED8838D00C2405D /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F53F77D1ED8838D00C2405D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F53F77F1ED8838D00C2405D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				9F53F7891ED8838D00C2405D /* Info.plist */,
 				9F04D9BE1EDD8073004C7732 /* NetworkManager.swift */,
 				9F185C411EDD95C700A3F5D5 /* ParseData.swift */,
+				9F185C431EDE1D1800A3F5D5 /* Utilities.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				9F04D9BF1EDD8073004C7732 /* NetworkManager.swift in Sources */,
 				9FBF67CD1ED98A0E007A0B8D /* Constants.swift in Sources */,
 				9F53F7981ED899B000C2405D /* csv.swift in Sources */,
+				9F185C441EDE1D1800A3F5D5 /* Utilities.swift in Sources */,
 				9FBF67CB1ED96413007A0B8D /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
