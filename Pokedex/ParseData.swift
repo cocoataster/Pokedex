@@ -10,9 +10,9 @@ import Foundation
 
 class ParseData {
     
-    class func parsePokemonsCSV() -> [Pokemon] {
+    class func parsePokemonsCSV() -> [PokemonModel] {
         
-        var pokemons: [Pokemon] = []
+        var pokemons: [PokemonModel] = []
         
         guard let path = Bundle.main.path(forResource: "pokemon", ofType: "csv") else {
             print("no guard")
@@ -24,7 +24,7 @@ class ParseData {
             
             for row in rows {
                 if let pokemonId = row["id"], let name = row["identifier"] {
-                    let pokemon = Pokemon(name: name, pokedexId: Int(pokemonId)!)
+                    let pokemon = PokemonModel(name: name, pokedexId: Int(pokemonId)!)
                     pokemons.append(pokemon)
                 }
             }

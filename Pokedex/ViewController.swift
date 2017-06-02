@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  Pokedex
@@ -8,6 +9,7 @@
 
 import UIKit
 import AVFoundation
+import SwiftyJSON
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -15,8 +17,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var soundBtn: UIButton!
     
-    var pokemons = [Pokemon]()
-    var filteredPokemon = [Pokemon]()
+    var pokemons = [PokemonModel]()
+    var filteredPokemon = [PokemonModel]()
     var inSearchMode = false
     var segueId = "PokemonDetailVC"
     
@@ -31,7 +33,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
         
-        //Don't want no music bro...
+        //Want no music bro...
         soundBtn.isHidden = true
         
         pokemons = ParseData.parsePokemonsCSV()
@@ -99,7 +101,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueId {
             if let detailsVC = segue.destination as? DetailVC {
-                if let pokemon = sender as? Pokemon {
+                if let pokemon = sender as? PokemonModel {
                     detailsVC.pokemon = pokemon
                 }
             }
@@ -117,7 +119,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return UICollectionViewCell()
         }
         
-        let pokemon: Pokemon = inSearchMode ? Pokemon(name: filteredPokemon[indexPath.row].name, pokedexId: filteredPokemon[indexPath.row].pokedexId) : Pokemon(name: pokemons[indexPath.row].name, pokedexId: pokemons[indexPath.row].pokedexId)
+        let pokemon: PokemonModel = inSearchMode ? PokemonModel(name: filteredPokemon[indexPath.row].name, pokedexId: filteredPokemon[indexPath.row].pokedexId) : PokemonModel(name: pokemons[indexPath.row].name, pokedexId: pokemons[indexPath.row].pokedexId)
         
         cell.configureCell(pokemon)
         
@@ -139,12 +141,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let pokemon: Pokemon = inSearchMode ? filteredPokemon[indexPath.row] : pokemons[indexPath.row]
-        performSegue(withIdentifier: segueId, sender: pokemon)
-        
+        let pokemon: PokemonModel = inSearchMode ? filteredPokemon[indexPath.row] : pokemons[indexPath.row]
+        self.performSegue(withIdentifier: segueId, sender: pokemon)
     }
-    
 }
-
-
-

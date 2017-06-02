@@ -10,49 +10,56 @@ import Foundation
 import SwiftyJSON
 
 class Utilities {
-    func loadPokemonAttributes(pokemonAttributes: JSON) -> Pokemon {
+    class func loadPokemonAttributes(pokemonAttributes: JSON) -> PokemonModel {
         
-        var pokemon: Pokemon = Pokemon(name: "", pokedexId: 1)
+        var pokemon = PokemonModel()
         
-        guard let attack = pokemonAttributes["attack"].int,
+        guard let name = pokemonAttributes["name"].string,
+            let pokedexId = pokemonAttributes["pkdx_id"].int,
+            let attack = pokemonAttributes["attack"].int,
             let defense = pokemonAttributes["defense"].int,
             let height = pokemonAttributes["height"].string,
             let weight = pokemonAttributes["weight"].string,
-            let types = pokemonAttributes["types"].dictionary,
-            let evolutions = pokemonAttributes["evolutions"].dictionary else {
+            let types = pokemonAttributes["types"].array,
+            let evolutions = pokemonAttributes["evolutions"].array else {
                 print("Error")
-                return Pokemon(name: "", pokedexId: 1)
+                return PokemonModel()
         }
         
         var typeConcatenation = ""
         
-        for (key,subJson):(String, JSON) in types {
-            if let name = subJson["name"].string {
-                if typeConcatenation == "" {
-                    typeConcatenation = name.capitalized
-                } else {
-                    typeConcatenation = "\(typeConcatenation)/\(name.capitalized)"
-                }
-            }g
-        }
+//        for type in types {
+//            if let name = type["name"].string {
+//                if typeConcatenation == "" {
+//                    typeConcatenation = name.capitalized
+//                } else {
+//                    typeConcatenation = "\(typeConcatenation)/\(name.capitalized)"
+//                }
+//            }
+//        }
         
         var currentEvo = ""
         
-        for (key,subJson):(String, JSON) in evolutions {
-            if let toPokemon = subJson["to"].string {
-                if toPokemon != currentEvo {
-                    if let level = subJson["level"].int {
-                        currentEvo = toPokemon
-                    }
-                }
-            }
-        }
+//        if let evolution = evolutions[0]["to"].string {
+//            if let level = evolutions[0]["level"].int {
+//                currentEvo = "Next evolution: \(evolution) at Lvl \(level)"
+//            } else {
+//                currentEvo = "No evolution available by Lvl"
+//            }
+//        }
         
-        //Falta creadora de pokemons a partir de atributos o func para añadir atrib
+        //loadPokemonDescription by calling Network manager!
+        // mock data
+        
+        let descript = "Hey! Here you have a mock descrtiption. Have fun... coding is funny right? right???? run now that you can!"
+        
+        pokemon = PokemonModel(name: name, pokedexId: pokedexId, descript: descript, type: typeConcatenation, defense: defense, height: height, weight: weight, attack: attack, hasEvolution: false, evoLevel: 0)
+        
         return pokemon
     }
     
-    func loadPokemonDescription(pokemonDescription: JSON) -> Pokemon {
-        //Falta creadore de pokemon a partir de descripcion
-    }
+//    func loadPokemonDescription(pokemonDescription: JSON) -> String {
+//        //Falta creadore de pokemon a partir de descripcion
+//    }
+    
 }

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 protocol NetworkManagerDelegate {
     func attributesDownloaded(data: Any?, error: NSError?)
-    func descriptionDownloaded(data: Any?, error: NSError?)
+    //func descriptionDownloaded(data: Any?, error: NSError?)
 }
 
 class NetworkManager: NSObject {
@@ -38,24 +38,24 @@ class NetworkManager: NSObject {
         }
     }
     
-    func downloadPokemonDescription(url: String) {
-        
-        let descriptionURL = webURL.appending(url)
-        
-        Alamofire.request(descriptionURL).responseJSON { (response) in
-            switch response.result {
-            case .success:
-                guard let json = response.result.value else {
-                    return
-                }
-                self.delegate?.descriptionDownloaded(data: json, error: nil)
-                //
-                
-            case .failure(let error):
-                self.delegate?.descriptionDownloaded(data: nil, error: error as NSError)
-            }
-            
-        }
-        
-    }
+//    func downloadPokemonDescription(url: String) {
+//        
+//        let descriptionURL = webURL.appending(url)
+//        
+//        Alamofire.request(descriptionURL).responseJSON { (response) in
+//            switch response.result {
+//            case .success:
+//                guard let json = response.result.value else {
+//                    return
+//                }
+//                self.delegate?.descriptionDownloaded(data: json, error: nil)
+//                //
+//                
+//            case .failure(let error):
+//                self.delegate?.descriptionDownloaded(data: nil, error: error as NSError)
+//            }
+//            
+//        }
+//        
+//    }
 }
