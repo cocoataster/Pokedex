@@ -1,5 +1,5 @@
 //
-//  PokeCell.swift
+//  PokemonCellView.swift
 //  Pokedex
 //
 //  Created by Eric Sans Alvarez on 26/05/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PokeCell: UICollectionViewCell {
+class PokemonCellView: UICollectionViewCell {
     
     @IBOutlet weak var thumbImg: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!

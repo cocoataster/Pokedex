@@ -1,5 +1,5 @@
 //
-//  DetailVC.swift
+//  DescriptionView.swift
 //  Pokedex
 //
 //  Created by Eric Sans Alvarez on 27/05/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class DetailVC: UIViewController {
+class DescriptionView: UIViewController {
 
     var pokemon: PokemonModel!
     
@@ -73,7 +73,7 @@ class DetailVC: UIViewController {
 
 // Mark: NetworkManagerDelegate
 
-extension DetailVC: NetworkManagerDelegate {
+extension DescriptionView: NetworkManagerDelegate {
     func attributesDownloaded(data: Any?, error: NSError?) {
         if error != nil {
             print("Error: \(error!)")

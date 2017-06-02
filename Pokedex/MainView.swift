@@ -1,6 +1,6 @@
 
 //
-//  ViewController.swift
+//  MainView.swift
 //  Pokedex
 //
 //  Created by Eric Sans Alvarez on 26/05/2017.
@@ -11,7 +11,7 @@ import UIKit
 import AVFoundation
 import SwiftyJSON
 
-class ViewController: UIViewController, UISearchBarDelegate {
+class MainView: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -100,7 +100,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     // MARK - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueId {
-            if let detailsVC = segue.destination as? DetailVC {
+            if let detailsVC = segue.destination as? DescriptionView {
                 if let pokemon = sender as? PokemonModel {
                     detailsVC.pokemon = pokemon
                 }
@@ -111,11 +111,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
 
 // Mark: UICollectionView Delegate, Data Source & Flow Layout
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MainView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCellView", for: indexPath) as? PokemonCellView else {
             return UICollectionViewCell()
         }
         
