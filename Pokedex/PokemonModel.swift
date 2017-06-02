@@ -106,18 +106,4 @@ class PokemonModel {
         self._evoLevel = evoLevel
     }
     
-    func addAttributes(type: String, defense: Int, height: String, weight: String, attack: Int, hasEvolution: Bool, evoLevel: Int) {
-        self._type = type
-        self._defense = defense
-        self._height = height
-        self._weight = weight
-        self._attack = attack
-        self._hasEvolution = hasEvolution
-        self._evoLevel = evoLevel
-    }
-    
-    func addDescription(descript: String) {
-        self._descript = descript
-    }
-    
 }
