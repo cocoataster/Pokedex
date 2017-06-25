@@ -12,6 +12,7 @@ import SwiftyJSON
 class DescriptionView: UIViewController {
 
     var pokemon: PokemonModel!
+	let networkManager = NetworkManager()
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var mainImg: UIImageView!
@@ -29,11 +30,9 @@ class DescriptionView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let networkManager = NetworkManager()
+		
         networkManager.delegate = self
-        networkManager.downloadPokemonAttributes(pokemonId: pokemon.pokedexId)
-        
+		networkManager.downloadPokemonAttributes(pokemonId: pokemon.pokedexId)
     }
     
     func setUpUI(_ viewModel: DescriptionViewModel) {
@@ -86,11 +85,26 @@ extension DescriptionView: NetworkManagerDelegate {
         
         let json = JSON(data)
         let pokemonModel: PokemonModel = Utilities.loadPokemonAttributes(pokemonAttributes: json)
-        pokemon = pokemonModel
-        
-        let descritpionViewModel = DescriptionViewModel(pokemon)
-        setUpUI(descritpionViewModel)
-    }
-    
-    //func description
+		pokemon = pokemonModel
+		
+		networkManager.downloadPokemonDescription(url: pokemonModel.descript)
+	}
+	
+	func descriptionDownloaded(data: Any?, error: NSError?) {
+		if error != nil {
+			print("Error: \(error!)")
+		}
+		
+		guard let data = data else {
+			print("Error: no description to be displayed")
+			return
+		}
+		
+		let json = JSON(data)
+		let description = Utilities.loadPokemonDescription(pokemonDescription: json)
+		pokemon.addDescription(descript: description)
+		
+		let descriptionViewModel = DescriptionViewModel(pokemon)
+		setUpUI(descriptionViewModel)
+	}
 }

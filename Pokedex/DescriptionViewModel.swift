@@ -43,7 +43,7 @@ class DescriptionViewModel {
         self.hasEvolution = pokemonModel.hasEvolution
         self.evoImage = pokemonModel.hasEvolution ? UIImage(named: "\(pokemonModel.pokedexId+1)".capitalized) : UIImage()
         self.evoLevel = String(pokemonModel.evoLevel)
-        self.nextEvolution = pokemonModel.hasEvolution ? "Next evolution: \(pokemonModel.pokedexId+1) @ Lvl \(pokemonModel.evoLevel)" : "No evolution available by Lvl"
+        self.nextEvolution = pokemonModel.hasEvolution ? "Next evolution @ Lvl \(pokemonModel.evoLevel)" : "No evolution available by Lvl"
 
     }
     

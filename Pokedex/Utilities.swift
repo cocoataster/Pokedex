@@ -28,38 +28,41 @@ class Utilities {
         
         var typeConcatenation = ""
         
-//        for type in types {
-//            if let name = type["name"].string {
-//                if typeConcatenation == "" {
-//                    typeConcatenation = name.capitalized
-//                } else {
-//                    typeConcatenation = "\(typeConcatenation)/\(name.capitalized)"
-//                }
-//            }
-//        }
+        for type in types {
+			if let name = type["name"].string {
+                if typeConcatenation == "" {
+                    typeConcatenation = name.capitalized
+                } else {
+                    typeConcatenation = "\(typeConcatenation)/\(name.capitalized)"
+                }
+            }
+        }
+		
+		var hasEvolution = false
+		var evoLevel = 0
+		
+		if (evolutions[0]["to"].string != nil) && (evolutions[0]["level"].int != nil) {
+			hasEvolution = true
+			evoLevel = evolutions[0]["level"].int!
+		}
+		
+		var urlDescript = ""
+		
+		if let descriptions = pokemonAttributes["descriptions"][0]["resource_uri"].string {
+			urlDescript = descriptions
+		}
         
-        var currentEvo = ""
-        
-//        if let evolution = evolutions[0]["to"].string {
-//            if let level = evolutions[0]["level"].int {
-//                currentEvo = "Next evolution: \(evolution) at Lvl \(level)"
-//            } else {
-//                currentEvo = "No evolution available by Lvl"
-//            }
-//        }
-        
-        //loadPokemonDescription by calling Network manager!
-        // mock data
-        
-        let descript = "Hey! Here you have a mock descrtiption. Have fun... coding is funny right? right???? run now that you can!"
-        
-        pokemon = PokemonModel(name: name, pokedexId: pokedexId, descript: descript, type: typeConcatenation, defense: defense, height: height, weight: weight, attack: attack, hasEvolution: false, evoLevel: 0)
+        pokemon = PokemonModel(name: name, pokedexId: pokedexId, descript: urlDescript, type: typeConcatenation, defense: defense, height: height, weight: weight, attack: attack, hasEvolution: hasEvolution, evoLevel: evoLevel)
         
         return pokemon
     }
-    
-//    func loadPokemonDescription(pokemonDescription: JSON) -> String {
-//        //Falta creadore de pokemon a partir de descripcion
-//    }
+	
+	class func loadPokemonDescription(pokemonDescription: JSON) -> String {
+		guard let description = pokemonDescription["description"].string else {
+			print("Error, no description")
+			return "No description available"
+		}
+		return description
+	}
     
 }

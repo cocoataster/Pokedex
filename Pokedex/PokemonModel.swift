@@ -105,5 +105,9 @@ class PokemonModel {
         self._hasEvolution = hasEvolution
         self._evoLevel = evoLevel
     }
+	
+	func addDescription(descript: String) {
+		self._descript = descript
+	}
     
 }
