@@ -23,6 +23,14 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2CA53D6EE6749A11CE014B84DFC73BED</key>
+<<<<<<< HEAD
+=======
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5DBD62BC4D3BEDF85624741C1E5140F0</key>
+>>>>>>> master
 		<dict>
 			<key>primary</key>
 			<true/>
